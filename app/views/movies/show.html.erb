@@ -1,17 +1,70 @@
 <div class="container">
-  <div class="row movie-show">
-    <div class="col-md-6">
-      <%= attachment_image_tag @movie, :image, :fill, 250, 250, fallback: "no_image.jpg" %>
+  <div class="row item-show">
+    <h2>作品情報</h2>
+    <div class="col-md-5 item-image">
+    <%= attachment_image_tag @movie, :image, :fill, 250, 250, fallback: "no_image.jpg" %>
     </div>
-    <div class="cart-field col-md-5">
-      <h2><%= @movie.name %></h2>
-      <p><%= @movie.introduction %></p>
 
+    <div class="cart-field col-md-15">
+      <table class="table">
+        <tr>
+          <th>作品名</th>
+          <td><%= @movie.name %></td>
+        </tr>
+
+        <tr>
+          <th>あらすじ</th>
+          <td><%= @movie.introduction %></td>
+        </tr>
+
+        <tr>
+          <th>スタッフ情報</th>
+          <td><%= @movie.staff %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>キャスト情報</th>
+          <td><%= @movie.cast %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>公開日</th>
+          <td><%= @movie.releasedate %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>コピーライト</th>
+          <td><%= @movie.copyright %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @movie.genre.name %></td>
+        </tr>
+
+        <tr>
+        <tr>
+          <th>使用許諾情報</th>
+          <td>
+            <% if @movie.is_active == true %>
+              <p class="text-success">使用可能</p>
+            <% else %>
+              <p class="text-black-50">使用禁止</p>
+            <% end %>
+          </td>
+        </tr>
+      </table>
+    
+    <br>   
+    <tr>
+      <h2><i class="fas fa-shopping-cart"></i> マイカートに追加する</h2>
       <%= form_with model: @cart_movie, url:cart_movies_path, local: true do |f| %>
-
         <div class="cart-form-group">
           使用を希望する場合は、以下より「希望する」を選択してください。
-        <br>
         <br>
         <%= f.select :request, [["希望する","希望する"]], include_blank: "利用選択" %>
         <%= f.hidden_field :movie_id, :value => @movie.id %>
@@ -22,6 +75,10 @@
           <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
         </div>
       <% end %>
+    </tr>
+    <br>
+    <br>
+    
     </div>
   </div>
 </div>

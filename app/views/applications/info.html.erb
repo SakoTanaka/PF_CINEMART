@@ -1,8 +1,8 @@
 <div class="cotainer">
-  <div class="col-md-8 application-md-1">
+ <div class="col-md-8 application-md-1">
   <h2 class="mb-3"><i class="far fa-sticky-note"></i> 利用申請情報最終確認</h2>
-  <div class="row">
-    <div class="col-md-7 ofset-md-1">
+   <div class="row">
+     <div class="col-md-7 ofset-md-1">
       <table class ="table">
         <thead>
           <tr>
@@ -18,8 +18,16 @@
         </thead>
       </table>
     </div>
+  </div>
+ </div>
+</div>
+
+<div class="cotainer">
+ <div class="col-md-8 application-md-1">
+  <h2 class="mb-3"><i class="fas fa-book-reader"></i> 以下の情報で申請いたします。</h2>
   <div class="row">
-    <table class="table">
+  　<div class="col-md-7 ofset-md-1">
+   　<table class="table">
       <tr>
         <th>使用目的</th>
         <td><%= @application.purpose %></td>
@@ -40,6 +48,7 @@
       <%= f.hidden_field :media, value: @application.media %>
       <%= f.submit "申請を確定する", class:"btn btn-primary" %>
     <% end %>
+   </div>
   </div>
-  </div>
+ </div>
 </div>

@@ -1,7 +1,7 @@
 class Admin::HomesController < ApplicationController
  before_action :authenticate_admin!
 
-  def index
+  def top
     @user = params[:user_id]
     if @user
       @applications = Application.where(user_id: @user)
@@ -9,5 +9,5 @@ class Admin::HomesController < ApplicationController
       @applications = Application.all
     end
   end
-  
+
 end

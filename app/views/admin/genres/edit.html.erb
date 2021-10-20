@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="col-md-3 genre-container">
-    <h3 class="genre-headding">作品ジャンル編集</h3>
+  <div class="col-md-4 genre-container">
+    <h3 class="genre-headding"><i class="fas fa-file-video"></i> 作品ジャンル編集</h3>
     <%= form_with model: @genre, url: admin_genre_path, local: true do |f| %>
     <%= f.label :"作品ジャンル名" %>
     <%= f.text_field :name, autofocus: true, class: "form-control" %>

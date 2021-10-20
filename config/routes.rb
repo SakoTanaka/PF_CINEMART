@@ -35,7 +35,7 @@ devise_for(
 # 管理者
 
   namespace :admin do
-    root "homes#index"
+    root "homes#top"
 
     resources :movies, only:[:index, :create, :new, :show, :edit, :update]
     resources :genres, only:[:index, :create, :edit, :update]

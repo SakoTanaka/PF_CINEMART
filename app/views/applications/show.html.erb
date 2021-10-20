@@ -15,49 +15,18 @@
           </tr>
           <tr>
             <th>使用目的</th>
-            <td><%= @application.order_status %></td>
+            <td><%= @application.purpose %></td>
+          </tr>
+          <tr>
+            <th>掲載時期</th>
+            <td><%= @application.date %></td>
           </tr>
         </table>
       </div>
-      <div class="col-md-5">
-        <h3>請求情報</h3>
-        <table class="table">
-          <tr>
-            <th>商品合計</th>
-            <td><%= @order.billing_amount - @order.delivery_charge %></td>
-          </tr>
-          <tr>
-            <th>配送料</th>
-            <td><%= @order.delivery_charge %></td>
-          </tr>
-          <tr>
-            <th><strong>ご請求額</strong></th>
-            <td><%= @order.billing_amount %></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-
-    <div class="col-md-8 order_box">
-      <h3>注文内容</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th>商品</th>
-            <th>単価（税込）</th>
-            <th>個数</th>
-            <th>小計</th>
-          </tr>
-        </thead>
-
         <tbody>
-          <% @order_details.each do |order_detail| %>
+          <% @application_details.each do |application_detail| %>
           <tr>
-            <td><%= order_detail.item.name %></td>
-            <td><%= order_detail.price %></td>
-            <td><%= order_detail.amount %></td>
-            <td><%= order_detail.price * order_detail.amount %></td>
-          </tr>
+            <td><%= application_detail.movie.name %></td>
           <% end %>
         </tbody>
       </table>
