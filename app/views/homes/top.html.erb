@@ -1,0 +1,42 @@
+<main role="main">
+
+<div class="home-container">
+   <div class="home-item">
+     <h1 class="jumbotron-heading"></h1>
+      <h1 class="home-title">ようこそ、CINEMARTへ <i class="far fa-folder-open"></i></h1></br>
+      <p class="home-body">雑誌の特集ページであの映画のあらすじを使用したい！番組企画のために、映画情報を知りたい！</br>
+      でも、正しい情報はどこを参照すればいいかわからない。</br>
+      そんな時はCINEMARTにおまかせください。</p>
+      映画情報の検索〜目的の情報の入手〜利用申請までをワンストップで可能にします。</br>
+    </div>
+ </div>
+
+<section class="jumbotron text-left">
+<h2><i class="fas fa-video"></i> 新着登録作品</h2>
+  <div class="album py-5 bg-light">
+    <div class="container">
+      <div class="row">
+
+        <% @movies.last(4).each do |movie| %>
+        <div class="col-md-3">
+          <div class="card mb-3 shadow-sm">
+            <%= link_to movie_path(movie.id) do %>
+              <%= attachment_image_tag movie, :image, fallback: "no_image.jpg", class: "card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text">
+                <%= movie.name %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+    </div>
+    <p style="text-align: center">
+    <%= link_to "全ての作品を見る", movies_path %></p>
+  </div>
+</section>
+
+</main>

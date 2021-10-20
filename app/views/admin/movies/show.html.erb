@@ -1,0 +1,74 @@
+<div class="container">
+  <div class="row item-show">
+    <br>
+    <br>
+    <div class="col-md-5 item-image">
+    <%= attachment_image_tag @movie, :image, :fill, 300, 300, fallback: "no_image.jpg" %>
+    </div>
+
+    <div class="cart-field col-md-15">
+      <br>
+      <br>
+      <table class="table">
+
+        <h2>作品情報</h2>
+        <tr>
+          <th>作品名</th>
+          <td><%= @movie.name %></td>
+        </tr>
+
+        <tr>
+          <th>あらすじ</th>
+          <td><%= @movie.introduction %></td>
+        </tr>
+
+        <tr>
+          <th>スタッフ情報</th>
+          <td><%= @movie.staff %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>キャスト情報</th>
+          <td><%= @movie.cast %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>公開日</th>
+          <td><%= @movie.releasedate %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>コピーライト</th>
+          <td><%= @movie.copyright %></td>
+        </tr>
+        <tr>
+
+        <tr>
+          <th>ジャンル</th>
+          <td><%= @movie.genre.name %></td>
+        </tr>
+
+        <tr>
+        <tr>
+          <th>使用許諾情報</th>
+          <td>
+            <% if @movie.is_active == true %>
+              <p class="text-success">使用可能</p>
+            <% else %>
+              <p class="text-black-50">使用禁止</p>
+            <% end %>
+          </td>
+        </tr>
+
+        <tr>
+          <th><%= link_to "編集", edit_admin_movie_path(@movie), class: "btn btn-primary" %></th>
+          <td></td>
+        </tr>
+
+      </table>
+    </div>
+  </div>
+</div>

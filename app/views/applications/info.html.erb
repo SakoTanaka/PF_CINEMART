@@ -1,0 +1,45 @@
+<div class="cotainer">
+  <div class="col-md-8 application-md-1">
+  <h2 class="mb-3"><i class="far fa-sticky-note"></i> 利用申請情報最終確認</h2>
+  <div class="row">
+    <div class="col-md-7 ofset-md-1">
+      <table class ="table">
+        <thead>
+          <tr>
+            <th>作品名</th>
+          </tr>
+           <tbody>
+            <% @cart_movies.each do |cart_movie| %>
+            <tr>
+              <td><%= cart_movie.movie.name %></td>
+            </tr>
+            <% end %>
+          </tbody>
+        </thead>
+      </table>
+    </div>
+  <div class="row">
+    <table class="table">
+      <tr>
+        <th>使用目的</th>
+        <td><%= @application.purpose %></td>
+      </tr>
+      <tr>
+        <th>掲載予定日</th>
+        <td><%= @application.date %></td>
+      </tr>
+      <tr>
+        <th>掲載媒体</th>
+        <td><%= @application.media %></td>
+      </tr>
+    </table>
+
+    <%= form_with model: @application, url:applications_path, method: :post, local: true do |f| %>
+      <%= f.hidden_field :purpose, value:  @application.purpose %>
+      <%= f.hidden_field :date, value: @application.date %>
+      <%= f.hidden_field :media, value: @application.media %>
+      <%= f.submit "申請を確定する", class:"btn btn-primary" %>
+    <% end %>
+  </div>
+  </div>
+</div>

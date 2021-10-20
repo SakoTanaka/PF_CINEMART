@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row movie-show">
+    <div class="col-md-6">
+      <%= attachment_image_tag @movie, :image, :fill, 250, 250, fallback: "no_image.jpg" %>
+    </div>
+    <div class="cart-field col-md-5">
+      <h2><%= @movie.name %></h2>
+      <p><%= @movie.introduction %></p>
+
+      <%= form_with model: @cart_movie, url:cart_movies_path, local: true do |f| %>
+
+        <div class="cart-form-group">
+          使用を希望する場合は、以下より「希望する」を選択してください。
+        <br>
+        <br>
+        <%= f.select :request, [["希望する","希望する"]], include_blank: "利用選択" %>
+        <%= f.hidden_field :movie_id, :value => @movie.id %>
+        </div>
+
+        <br>
+        <div class="cart-form-group">
+          <%= f.submit "カートに入れる", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

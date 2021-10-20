@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="col-md-8 order-md-1">
+    <h2 class="my_page_tag"><i class="fas fa-user-cog"></i>マイページ</h2>
+    <div class="row user_show_button">
+        <h4>登録情報</h4>
+        <span class="link_button"><%= link_to "編集する", edit_user_path, class: "btn-sm btn btn-success" %></span>
+    </div>
+
+    <table class="table">
+      <tr>
+        <td>氏名</td>
+        <td><%= @user.last_name %><%= @user.first_name %></td>
+      </tr>
+
+      <tr>
+        <td>フリガナ</td>
+        <td><%= @user.last_name_kana %><%= @user.first_name_kana %></td>
+      </tr>
+
+      <th>会社名</th>
+        <td><%= @user.company %></td>
+      </tr>
+
+      <tr>
+      <tr>
+        <th>会社名（カナ）</th>
+        <td><%= @user.company_name_kana %></td>
+      </tr>
+
+      <tr>
+        <th>所属部署名</th>
+        <td><%= @user.department %>
+      </tr>
+
+      <tr>
+        <td>郵便番号</td>
+        <td><%= @user.postal_code %></td>
+      </tr>
+
+      <tr>
+        <td>住所</td>
+        <td><%= @user.address %></td>
+      </tr>
+
+      <tr>
+        <td>電話番号</td>
+        <td><%= @user.telephone_number %></td>
+      </tr>
+
+      <tr>
+        <td>メールアドレス</td>
+        <td><%= @user.email %></td>
+      </tr>
+
+    </table>
+
+    <div class="row user_show_button">
+      <h4><i class="far fa-sticky-note"></i> 利用申請履歴</h4>
+      <span class="link_button"><%= link_to "一覧を見る", applications_path, class: "btn-sm btn btn-primary" %></span>
+    </div>
+  </div>
+</div>

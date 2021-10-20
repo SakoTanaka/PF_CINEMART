@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CINEMART</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<% if user_signed_in? %>
+<header>
+  <div class="collapse" style="background-color:#5EBFAD" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">CINEMARTの使い方</h4>
+          <p class="text-muted">ご利用になりたい作品を一覧から見つけたら、カートに追加して、利用申請手続きへ進んでください。</p>
+        </div>
+
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Main Menu</h4>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-user-cog"></i><%= link_to " マイページ", user_path(current_user) %></li>
+            <li><i class="fas fa-video"></i><%= link_to " 作品一覧", movies_path %></li>
+            <li><i class="fas fa-shopping-cart"></i><%= link_to " カート",  cart_movies_path %></li>
+            <li><i class="fas fa-sign-in-alt"></i><%= link_to " ログアウト",  destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-dark" style="background-color:#5EBFAD" id="mainNav">
+    <div class="container d-flex justify-content-between">
+      <a href="/" class="navbar-brand d-flex align-items-center"><%= image_tag('CINEMART_logo.png') %></a>
+
+      ようこそCINEMARTへ！<%= current_user.last_name %>さん
+      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<% elsif admin_signed_in? %>
+<header>
+  <div class="collapse" style="background-color:#5EBFAD" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">CINEMARTの使い方</h4>
+          <p class="text-muted">ご利用になりたい作品を一覧から見つけたら、カートに追加して、利用申請手続きへ進んでください。</p>
+        </div>
+
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Main Menu</h4>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-video"></i><%= link_to " 登録作品一覧",admin_movies_path %></li>
+            <li><i class="fas fa-user-cog"></i><%= link_to " 利用者一覧", admin_users_path %></li>
+            <li><i class="fas fa-shopping-cart"></i><%= link_to " 利用申請履歴一覧", admin_root_path %></li>
+            <li><i class="fas fa-shopping-cart"></i><%= link_to " 作品ジャンル登録", admin_genres_path %></li>
+            <li><i class="fas fa-sign-in-alt"></i><%= link_to " ログアウト",  destroy_admin_session_path, method: :delete %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-dark" style="background-color:#5EBFAD" id="mainNav">
+    <div class="container d-flex justify-content-between">
+      <a href="/" class="navbar-brand d-flex align-items-center"><%= image_tag('CINEMART_logo.png') %></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<% else %>
+
+<header>
+  <div class="collapse" style="background-color:#5EBFAD" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-md-7 py-4">
+          <h4 class="text-white">CINEMARTの使い方</h4>
+          <p class="text-muted">ご利用になりたい作品を一覧から見つけたら、カートに追加して、利用申請手続きへ進んでください。</p>
+        </div>
+
+        <div class="col-sm-4 offset-md-1 py-4">
+          <h4 class="text-white">Main ︎Menu</h4>
+          <ul class="list-unstyled">
+            <li><i class="fas fa-video"></i><%= link_to " 作品一覧", movies_path %></li>
+            <li><i class="fas fa-user-cog"></i><%= link_to " 新規登録", new_user_registration_path %></li>
+            <li><i class="fas fa-sign-in-alt"></i><%= link_to " ログイン", new_user_session_path %></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="navbar navbar-dark" style="background-color:#5EBFAD" id="mainNav">
+    <div class="container d-flex justify-content-between">
+      <a href="/" class="navbar-brand d-flex align-items-center"><%= image_tag('CINEMART_logo.png') %></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+
+</header>
+<% end %>
+
+<main>
+<p class="notice"><font color="green"><%= notice %></font>
+<p class="alert"><font color="red"><%= alert %></font>
+<%= yield %>
+</main>
+
+<footer class = "text-white pt-3 pb-4" style = "background-color:#F2622E">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-6">
+            <p>© CINEMART INC. ALL RIGHTS RESERVED.</p>
+            <a href="http://www.freepik.com">Designed by macrovector_official / Freepik</a>
+             </p>
+          </div>
+        </div>
+      </div>
+</footer>
+
+<script src="../../assets/js/vendor/holder.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script>
+  window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')
+</script><script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script><script src="/docs/4.3/assets/js/vendor/anchor.min.js"></script>
+<script src="/docs/4.3/assets/js/vendor/clipboard.min.js"></script>
+<script src="/docs/4.3/assets/js/vendor/bs-custom-file-input.min.js"></script>
+<script src="/docs/4.3/assets/js/src/application.js"></script>
+<script src="/docs/4.3/assets/js/src/search.js"></script>
+<script src="/docs/4.3/assets/js/src/ie-emulation-modes-warning.js"></script>
+
+</html>

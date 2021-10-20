@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="col-md-8">
+    <div class="unsubscribe_message">
+      <h3 class="unsubscribe_title"><i class="fas fa-dizzy"></i>本当に退会しますか？</h3>
+      <p class="unsubscribe_body">
+        退会すると、会員登録情報や<br>
+        これまでの利用申請履歴が閲覧できなくなります。<br>
+        退会する場合は「退会する」をクリックしてください。<br>
+      </p>
+      <div class="row unsubscribe">
+      <%= link_to "退会しない", user_path(@user), class: "btn-sm btn btn-primary" %>
+      <%= link_to "退会する", users_unsubscribe_path, method: :patch, data: {confirm: "本当に退会してよろしいですか？"}, class: "btn-sm btn btn-danger withdraw-button" %>
+    </div>
+  </div>
+  </div>

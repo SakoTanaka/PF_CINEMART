@@ -1,0 +1,33 @@
+<div class="col-md-9 order-md-1">
+  <h3 class="mb-3"><i class="far fa-sticky-note"></i> 利用申請情報入力</h3>
+   <%= form_with model: @application, url:applications_info_path, local: true, class: "needs-validation" do |f| %>
+
+  <table>
+　　<h5 class="mb-3">掲載媒体</h5>
+      <%= f.text_field :media,  autofocus: true, placeholder: "テレビ、雑誌、広告、SNS、新聞など", class: "form-control" %>
+    </br>
+
+　  <h5 class="mb-3">使用目的</h5>
+   　 <%= f.text_area :purpose,  autofocus: true, placeholder: "映画黄金時代特集に使用します。", class: "form-control" %>
+  　</br>
+
+  　<h5 class="mb-3">掲載時期(予定日でも可)</h5>
+    　<%= f.text_field :date, autofocus: true, placeholder: "2021年11月1日", class: "form-control" %>
+  　</br>
+
+  　<h5 class="mb-3">利用者情報</h5>
+  　<div class="col-md-5 mb-3">
+  　　　　<p>
+      　　〒<%= @user.postal_code %><%= @user.address %></br>
+      　　<%= @user.company %><%= @user.department %></br>
+      　　<%= @user.last_name %><%= @user.first_name %></br>
+   　　　</p>
+　　</div>
+
+    <div class="col-md-6 mb-3">
+    　<%= f.submit "確認画面へ進む", class: "btn btn-primary btn-lg btn-block" %>
+    </div>
+　</table>
+<% end %>
+
+</div>

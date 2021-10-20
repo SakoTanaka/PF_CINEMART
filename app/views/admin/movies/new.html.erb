@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="col-md-8">
+    <h2>新規作品登録</h2>
+    <%= form_with model: @movie, url:admin_movies_path, local:true, class: "form-horizontal" do |f| %>
+    <table>
+    <br>
+
+      <tr>
+        <th><%= f.label :"作品キーアート" %></th>
+        <td><%= f.attachment_field :image, class: "form-control-file product_item" %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :"作品名" %></th>
+        <td><%= f.text_field :name, autofocus: true, placeholder: "作品名", class: "form-control product_item" %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :"あらすじ" %></th>
+        <td><%= f.text_area :introduction, autofocus: true, placeholder: "あらすじ", class: "form-control product_item" %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :"スタッフ情報" %></th>
+        <td><%= f.text_area :staff, autofocus: true, placeholder: "監督・脚本・撮影など", class: "form-control product_item" %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :"キャスト情報" %></th>
+        <td><%= f.text_area :cast, autofocus: true, placeholder: "キャストビリング順だと好ましいです", class: "form-control product_item" %></td>
+        <td></td>
+      </tr>
+
+
+　   <tr>
+        <th><%= f.label :"公開日" %></th>
+        <td><%= f.text_field :releasedate, autofocus: true, placeholder: "hhhh/mm/dd", class: "form-control product_item" %></td>
+        <td></td>
+     </tr>
+
+      <tr>
+        <th><%= f.label :"コピーライト" %></th>
+        <td><%= f.text_field :copyright, autofocus: true, placeholder: "©から入力してください️", class: "form-control product_item" %></td>
+        <td></td>
+     </tr>
+
+      <tr>
+        <th><%= f.label :"ジャンル" %></th>
+        <td><%= f.collection_select :genre_id, Genre.all, :id, :name, { include_blank: '選択してください'}, class: "form-control product_item" %></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <th><%= f.label :"使用許諾情報" %></th>
+        <td>
+           <%= f.radio_button :is_active, :true %>
+           <%= f.label :is_active, "使用可能" %>
+           <%= f.radio_button :is_active, :false %>
+           <%= f.label :id_active, "使用禁止" %>
+        </td>
+        <td></td>
+      </tr>
+
+    </table>
+    <%= f.submit "新規登録", class: "product_item btn btn-success" %>
+    <% end %>
+  </div>
+</div>

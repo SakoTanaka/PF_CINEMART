@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-md-12 order_show">
+    <br>
+    <h3 class="order-headding">利用申請履歴詳細</h3>
+    <div class="row application_info_box">
+      <div class="col-md-7">
+        <h4>申請情報</h4>
+        <table class="table">
+          <tr>
+            <th>利用申請者</th>
+            <td><%= @application.user.last_name %><%= @application.user.first_name %></td>
+          </tr>
+          <tr>
+            <th>申請日</th>
+            <td><%= @application.created_at.strftime("%Y/%m/%d") %></td>
+          </tr>
+          <tr>
+        </table>
+      </div>
+
+    <div class="col-md-8 admin-order-box">
+      <h4>注文内容</h4>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>商品名</th>
+            <th>単価（税込）</th>
+            <th>数量</th>
+            <th>小計</th>
+            <th>製作ステータス</th>
+            <th></th>
+          </tr>
+        </thead>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

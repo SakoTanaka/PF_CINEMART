@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+  .container{
+    height: 100%;
+    width: 100%;
+  }
+
+  .home-container{
+  height: 400px;
+  background-image: image-url("CINEMART_bg.jpg");
+  background-size: cover;
+  background-position: center;
+  opacity:  0.9;
+  }
+
+  .home-item,{
+   margin: 0;
+   position: absolute;
+   margin-right: -30%;
+   transform: translate(30%, 50%)
+  }
+
+  .col-md-8{
+    margin: 50px;
+  }
+  .application-md-1{
+    margin: 50px;
+  }
+  
+  .sign_up_name {
+    margin-left: 37px;
+  }
+  .sign_up_detail{
+    margin-left: 50px;
+  }
+  .link_button{
+    margin-left: 30px;
+  }
+  .movie-show{
+    margin: 50px;
+  }
+  .cart-movie-index{
+    margin: 50px;
+  }
+  .user_show_button{
+    margin: 50px 0 10px 0;
+  }
+  .withdraw-button{
+    margin-left: 30px;
+  }
+  .unsubscribe_message{
+    text-align: center;
+    margin-left: 300px;
+  }
+  .unsubscribe{
+    margin-left: 100px;
+  }
+  .user_edit{
+    margin-bottom: 30px;
+  }
+  .application_index{
+    margin: 50px;
+  }
+  .application_show{
+    margin: 50px;
+  }
+  .application_box{
+    margin-top: 10px;
+  }
+  .application_info_box{
+    margin-bottom: 10px;
+  }
+  .admin-movie-btn{
+    margin: 20px;
+  }
+
+  .item-image{
+    margin-top: 50px;
+  }
+  .user_headding{
+    margin-bottom: 20px;
+  }
+  .user-edit-btn{
+    margin-right: 50px;
+  }
+  .admin-user-edit{
+    margin: 50px;
+  }
+  .order-headding{
+    margin-bottom: 20px;
+  }
+  .genre-headding{
+    margin-bottom: 20px;
+  }
+  .admin-application-box{
+    margin: 10px 0 0 0;
+  }
+  .genre-container{
+    margin: 50px;
+  }
+  .genre-edit-btn{
+    margin-top: 20px;
+  }
+  .genre-form{
+    margin-bottom: 20px;
+  }
+  
+  
+  
+
+dl.searchbox{
+  width: 350px;
+  position:relative;
+  background-color:#fff;
+  border:1px solid #aaa;
+  border-radius:6px;
+}
+dl.searchbox dt{
+  padding:3px;
+}
+dl.searchbox dt input{
+  width:70%;
+  height:30px;
+  line-height:30px;
+  background:none;
+  border:none;
+}
+dl.searchbox dd{
+  position:absolute;
+  top:1px;
+  right:1px;
+  width:30%;
+}
+.search-btn{
+  display:block;
+  background:#5fad35;
+  width:100%;
+  height:36px;
+  line-height:36px;
+  border:none;
+  border-radius: 0 6px 6px 0;
+  color:#FFF;
+}
+
+.search-btn:hover {
+  background:#228B22;
+}

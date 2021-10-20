@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="col-md-8">
+
+  <dl class="searchbox">
+
+    <h3>登録作品一覧</h3>
+    <%= link_to "作品新規登録", new_admin_movie_path, class: "admin-movie-btn btn btn-success" %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>作品ID</th>
+          <th>作品名</th>
+          <th>公開日</th>
+          <th>ジャンル</th>
+          <th>使用許諾情報</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @search_movies.each do |movie| %>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= link_to movie.name, admin_movie_path(movie.id) %></td>
+          <td><%= movie.releasedate %></td>
+          <td><%= movie.genre.name %></td>
+          <td>
+            <% if movie.is_active == true %>
+              <p class="text-success">使用可能</p>
+            <% else %>
+              <p class="text-black-50">使用禁止</p>
+            <% end %>
+          </td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @movies %>
+  </div>
+</div>
